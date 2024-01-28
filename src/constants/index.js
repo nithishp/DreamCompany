@@ -1,6 +1,6 @@
 import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
 import { bigShoe1, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
-
+import TeamImage from '../persnalAsset/TeamImage.svg'
 export const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#about-us", label: "About Us" },
@@ -54,14 +54,14 @@ export const products = [
 
 export const services = [
     {
-        imgURL: truckFast,
-        label: "Free shipping",
-        subtext: "Enjoy seamless shopping with our complimentary shipping service."
+        imgURL: TeamImage,
+        label: "Team Support",
+        subtext: "Our Team people with 10+ years of experience in the field of recruitment."
     },
     {
         imgURL: shieldTick,
-        label: "Secure Payment",
-        subtext: "Experience worry-free transactions with our secure payment options."
+        label: "100% Trust",
+        subtext: "We have helped more than 200 people to reach their dream job."
     },
     {
         imgURL: support,

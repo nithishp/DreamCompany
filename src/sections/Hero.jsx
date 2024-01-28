@@ -13,18 +13,19 @@ const Hero = () => {
       <div className='relative xl:w-2/5 flex flex-col justify-center items-start w-full max-xl:padding-x pt-28'>
         <p className='text-xl font-montserrat text-coral-red'>
           Our Summer Collection
-        </p><h1 className='mt-10 font-palanquin text-8xl max-sm:text-[72px]
-        max-sm:leading-[82] font-bold xl:whitespace-nowrap'>
+        </p>
+        <h1 className='mt-10 font-palanquin text-8xl max-sm:text-[72px]
+        max-sm:leading-none font-bold xl:whitespace-nowrap'>
           <span className='xl:whitespace-nowrap xl:bg-white z-10 pr-10'>Get Your</span>
           <br />
           <span className='text-red-500 inline-block mt-3 '>Dream</span> <span>Company</span>
           
         </h1>
         <p className='mt-6 mb-14 font-montserrat text-slate-gray text-lg sm:max-w-sm'>get Your dream Job that will make your life 100x better!!!</p>
-        <Button  label = "Show Now" iconURL = {arrowRight}/>
+        <Button  label = "Register Now" iconURL = {arrowRight}/>
         <div className='justify-start items-start flex flex-wrap w-full mt-20 gap-16'>
         {statistics.map((item) => (
-          <div key={item.label} className='flex flex-col justify-center items-center'>
+          <div key={item.label} className='flex flex-col max-sm:flex-auto justify-center items-center'>
             <p className='text-4xl font-palanquin font-bold'>{item.value}</p>
             <p className='text-slate-gray font-montserrat leading-7'>{item.label}</p>
           </div>
