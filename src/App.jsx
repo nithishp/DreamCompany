@@ -1,10 +1,10 @@
 import Hero from './sections/Hero'
 import SuperQuality from './sections/SuperQuality'
-import PopularProducts from './sections/PopularProducts'
+
 import Services from './sections/Services'
 import SpecialOffer from './sections/SpecialOffer'
 import CoustomerReviews from './sections/CoustomerReviews'
-import Subscribe from './sections/subscribe.jsx'
+
 import Footer from './sections/Footer.jsx'
 import Nav from './components/Nav.jsx'
 const App = () => {
