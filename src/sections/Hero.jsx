@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import { arrowRight } from '../assets/icons'
 import { statistics } from '../constants'
@@ -20,7 +21,9 @@ const Hero = () => {
           
         </h1>
         <p className='mt-6 mb-14 font-montserrat text-slate-gray text-lg sm:max-w-sm'>get Your dream Job that will make your life 100x better!!!</p>
+        <Link to='/register'>
         <Button  label = "Register Now" iconURL = {arrowRight}/>
+        </Link>
         <div className='justify-start items-start flex flex-wrap w-full mt-20 gap-16'>
         {statistics.map((item) => (
           <div key={item.label} className='flex flex-col max-sm:flex-auto justify-center items-center'>

@@ -5,6 +5,8 @@ import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import RegisterScreen from './pages/RegisterScreen.jsx'
 import LoginScreen from './pages/LoginScreen.jsx'
+import Profile from './pages/Profile.jsx'
+import GetInfo from './pages/GetInfo.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -12,6 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/' element={<App/>}/>
       <Route path='/register' element={<RegisterScreen/>}/>
       <Route path='/login' element={<LoginScreen/>}/>
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/info' element={<GetInfo/>}/>
     </Routes>
   </BrowserRouter>
     

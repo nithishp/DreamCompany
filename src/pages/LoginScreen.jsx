@@ -1,4 +1,25 @@
+import { account } from '../appwrite/appwriteconfig'
+import { useNavigate,Link } from 'react-router-dom'
+import headerImage from '../persnalAsset/headerImage.png'
+import { useState } from 'react'
+
 export default function LoginScreen() {
+  const navigate = useNavigate();
+  const [user,setUser] = useState({
+    email:'',
+    password:'',
+  })
+  const loginUser = async(e)=>{
+    e.preventDefault();
+    try {
+      await account.createEmailSession(user.email,user.password)
+      navigate('/profile')
+      
+    } catch (error) {
+      console.log(error)
+      
+    }
+  }
     return (
       <>
         {/*
@@ -12,9 +33,10 @@ export default function LoginScreen() {
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
-              className="mx-auto h-10 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              className="mx-auto h-[200px] w-auto"
+              src={headerImage}
               alt="Your Company"
+              
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
@@ -29,6 +51,7 @@ export default function LoginScreen() {
                 </label>
                 <div className="mt-2">
                   <input
+                  onChange={(e)=>setUser({...user,email:e.target.value})}
                     id="email"
                     name="email"
                     type="email"
@@ -52,6 +75,7 @@ export default function LoginScreen() {
                 </div>
                 <div className="mt-2">
                   <input
+                  onChange={(e)=>setUser({...user,password:e.target.value})}
                     id="password"
                     name="password"
                     type="password"
@@ -64,6 +88,7 @@ export default function LoginScreen() {
   
               <div>
                 <button
+                onClick={loginUser}
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
@@ -74,9 +99,9 @@ export default function LoginScreen() {
   
             <p className="mt-10 text-center text-sm text-gray-500">
               Not a member?{' '}
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                Start a 14 day free trial
-              </a>
+              <Link to={'/register'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                Sign up now
+              </Link>
             </p>
           </div>
         </div>

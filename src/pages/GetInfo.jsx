@@ -1,39 +1,59 @@
-import { useState } from 'react'
+
+import { useState,useEffect } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Switch } from '@headlessui/react'
 import { account } from '../appwrite/appwriteconfig'
-import { useNavigate,Link } from 'react-router-dom'
-import {v4 as uuidv4} from 'uuid'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function RegisterScreen() {
-  const navigate = useNavigate();
-  const [user,setUser] = useState({
-    firstname:'',
-    lastname:'',
-    email:'',
-    password:'',
+export default function GetInfo() {
+    const [userData, setUserData] = useState([{
+        age : '',
+        gender : '',
+        phonenumber: '',
+        country : '',
+        state : '',
+        city : '',
+        address1 : '',
+        address2 : '',
+        intrestedjob: '',
+        jobtype: '',
+        salaryexpectation: '',
+        qualification: '',
+        experince: '',
+        experincedescription: '',
+        previouscompany: '',
+        phone: ''
+    }])
+   
+    const [userDetails, setUserDetails] = useState()
+    useEffect(() => {
+        // Log userDetails after it has been updated
+        console.log(userDetails);
+      }, [userDetails]); // Only log when userDetails changes
     
-  })
+    useEffect(() => {
+        const getUserDetails = async () => {
+            try {
+                
+                const response = await account.get()
+                
+                setUserDetails(response)
+                
+                console.log(userDetails)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getUserDetails()
+    }, [])
   const [agreed, setAgreed] = useState(false)
-  const signupUser = async(e)=>{
-    e.preventDefault();
-    const promise = account.create(uuidv4(),user.email,user.password,user.firstname,user.lastname)
-    promise.then((response)=>{
-      console.log(response)
-      navigate('/login')
-    }).catch((error)=>{
-      console.log(error)
-    })
-    
-  }
-
 
   return (
     <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+        
       <div
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
@@ -47,49 +67,81 @@ export default function RegisterScreen() {
         />
       </div>
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Sign Up</h2>
-        
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Hello {userDetails ? userDetails.name : ''} </h2>
+        <p className="mt-2 text-lg leading-8 text-gray-600">
+         Provide your details in this form to get reviewed by our HR.
+        </p>
       </div>
       <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
             <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              First name
+              Educational Qualification
             </label>
             <div className="mt-2.5">
               <input
-              onChange={(e)=>setUser({...user,firstname:e.target.value})}
                 type="text"
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
+                name="qualification"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+              Intrested Vacancies
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="intrestedjob"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div>
             <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              Last name
+              Any Exprience
             </label>
             <div className="mt-2.5">
               <input
-              onChange={(e)=>setUser({...user,lastname:e.target.value})}
                 type="text"
                 name="last-name"
                 id="last-name"
                 autoComplete="family-name"
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
+              
+<div class="flex items-center mb-4">
+    <input id="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 "/>
+    <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 ">Yes</label>
+</div>
+<div class="flex items-center">
+    <input checked id="default-radio-2" type="radio" value= "" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2  "/>
+    <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 ">No</label>
+</div>
+
             </div>
           </div>
-         
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Email
+            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+              Tell us about your Exprience
             </label>
             <div className="mt-2.5">
               <input
-              onChange={(e)=>setUser({...user,email:e.target.value})}
+                type="text"
+                name="company"
+                id="company"
+                autoComplete="organization"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+              Salary Expectation
+            </label>
+            <div className="mt-2.5">
+              <input
                 type="email"
                 name="email"
                 id="email"
@@ -98,20 +150,20 @@ export default function RegisterScreen() {
               />
             </div>
           </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Password
+            <div className="sm:col-span-2">
+            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+              Tell us about your self
             </label>
             <div className="mt-2.5">
-              <input
-                onChange={(e)=>setUser({...user,password:e.target.value})}
-                type="password"
-                name="password"
+              <textarea
+                name="message"
+                id="message"
+                rows={4}
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                defaultValue={''}
               />
             </div>
           </div>
-          
           <Switch.Group as="div" className="flex gap-x-4 sm:col-span-2">
             <div className="flex h-6 items-center">
               <Switch
@@ -142,21 +194,12 @@ export default function RegisterScreen() {
           </Switch.Group>
         </div>
         <div className="mt-10">
-          <Link to={'/info'}>
           <button
-          onClick={signupUser}
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Sign Up
+            Let's talk
           </button>
-          </Link>
-          <p className="mt-10 text-center text-sm text-gray-500">
-              Already a member?{' '}
-              <Link to={'/login'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                Sign In 
-              </Link>
-            </p>
         </div>
       </form>
     </div>
