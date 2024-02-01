@@ -6,6 +6,7 @@ import { statistics } from '../constants'
 import { bigShoe1 } from '../assets/images'
 import heroImage from '../persnalAsset/heroImage.png'
 import heroImage2 from '../persnalAsset/heroImage2.png'
+import CountUp from 'react-countup'
 
 const Hero = () => {
   return (
@@ -25,13 +26,20 @@ const Hero = () => {
         <Button  label = "Register Now" iconURL = {arrowRight}/>
         </Link>
         <div className='justify-start items-start flex flex-wrap w-full mt-20 gap-16'>
-        {statistics.map((item) => (
-          <div key={item.label} className='flex flex-col max-sm:flex-auto justify-center items-center'>
-            <p className='text-4xl font-palanquin font-bold'>{item.value}</p>
-            <p className='text-slate-gray font-montserrat leading-7'>{item.label}</p>
+      
+          <div  className='flex flex-col max-sm:flex-auto justify-center items-center'>
+            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={32} duration={2} delay={0}/>+</p>
+            <p className='text-slate-gray font-montserrat leading-7'>Shop</p>
           </div>
-        ))
-        }
+          <div  className='flex flex-col max-sm:flex-auto justify-center items-center'>
+            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={97} duration={2} delay={0}/>+</p>
+            <p className='text-slate-gray font-montserrat leading-7'>Brands</p>
+          </div>
+          <div  className='flex flex-col max-sm:flex-auto justify-center items-center'>
+            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={157} duration={2} delay={0}/>+</p>
+            <p className='text-slate-gray font-montserrat leading-7'>Clients</p>
+          </div>
+        
         </div>
 
       </div>

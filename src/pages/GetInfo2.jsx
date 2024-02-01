@@ -10,7 +10,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function GetInfo() {
+export default function GetInfo2() {
     const [exprience, setExprience] = useState('')
     const [age, setAge] = useState('')
     const [gender, setGender] = useState('')
@@ -26,27 +26,23 @@ export default function GetInfo() {
     const [experince, setExperince] = useState('')
     const [experincedescription, setExperincedescription] = useState('')
     const [previouscompany, setPreviouscompany] = useState('')
+    const [selfSummary, setSelfSummary] = useState('')
 
     function handleRadioChange(event) {
         setExprience(event.target.value)
       }
 
-    const [userData, setUserData] = useState([{
-        age : '',
-        gender : '',
-        phonenumber: '',
-        country : '',
-        state : '',
-        city : '',
-        address1 : '',
-        address2 : '',
-        intrestedjob: '',
-        jobtype: '',
-        salaryexpectation: '',
-        qualification: '',
-        experince: '',
-        experincedescription: '',
-        previouscompany: ''
+    const [userDataPer, setUserDataPer] = useState([{
+        age : age,
+        gender : gender,
+        phonenumber: phonenumber,
+        country : country,
+        state : state,
+        city : city,
+        address1 : address1,
+        address2 : address2,
+        selfSummary : selfSummary
+        
     }])
    
     const [userDetails, setUserDetails] = useState()
@@ -90,29 +86,33 @@ export default function GetInfo() {
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Hello {userDetails ? userDetails.name : ''} </h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">
-         Provide your details in this form to get reviewed by our HR.
+         Provide your Personal details in this form.
         </p>
       </div>
       <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-          <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              Educational Qualification
+        <div className="sm:col-span-2">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+              Address Line 1
             </label>
             <div className="mt-2.5">
               <input
                 type="text"
-                name="qualification"
+                name="job-type"
+                id="job-type"
+                onChange={(e) => setAddress1(e.target.value)}
+                
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Salary Expectation
+              Address Line 2
             </label>
             <div className="mt-2.5">
               <input
+              onChange={(e) => setAddress2(e.target.value)}
                 type="text"
                 name="job-type"
                 id="job-type"
@@ -123,185 +123,150 @@ export default function GetInfo() {
           </div>
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Job Type
-            </label>
-            <div className="mt-2.5">
-              
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {jobtype ? jobtype : 'Select'}
-          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-        </Menu.Button>
-      </div>
-
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <p
-                  onClick={() => setJobtype('Part-Time')}
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                 Part-Time
-                </p>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <p
-                  onClick={() => setJobtype('Full-Time')}
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Full-Time
-                </p>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <p
-                  onClick={() => setJobtype('Internship')}
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Internship
-                </p>
-              )}
-            </Menu.Item>
-            
-          </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
-            </div>
-          </div>
-          <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              Intrested Vacancies
+              City
             </label>
             <div className="mt-2.5">
               <input
+                onChange={(e) => setCity(e.target.value)}
                 type="text"
-                name="intrestedjob"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-          <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-              Any Exprience
-            </label>
-            <div className="mt-2.5">
-             
-              
-            <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {experince ? experince : 'Select'}
-          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-        </Menu.Button>
-      </div>
-
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="py-1">
-            <Menu.Item>
-              {({ active }) => (
-                <p
-                  onClick={() => setExperince('Yes')}
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                 Yes
-                </p>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <p
-                  onClick={() => setExperince('No')}
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  No
-                </p>
-              )}
-            </Menu.Item>
-           
-            
-          </div>
-        </Menu.Items>
-      </Transition>
-    </Menu>
-
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
-              Tell us about your Exprience
-            </label>
-            <div className="mt-2.5">
-              <input
-                type="text"
-                name="company"
-                id="company"
-                autoComplete="organization"
+                name="job-type"
+                id="job-type"
+                
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div className="sm:col-span-2">
             <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-              Salary Expectation
+              State
             </label>
             <div className="mt-2.5">
               <input
-                type="email"
-                name="email"
-                id="email"
-                autoComplete="email"
+              onChange={(e) => setState(e.target.value)}
+                type="text"
+                name="job-type"
+                id="job-type"
+                
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
+          <div className="sm:col-span-2">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+              Country
+            </label>
+            <div className="mt-2.5">
+              <input
+              onChange={(e) => setCountry(e.target.value)}
+                type="text"
+                name="job-type"
+                id="job-type"
+                
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+              Gender
+            </label>
+            <div className="mt-2.5">
+              
+    <Menu as="div" className="relative inline-block text-left">
+      <div>
+        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+          {gender ? gender : 'Select'}
+          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-left rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              {({ active }) => (
+                <p
+                  onClick={() => setGender('Male')}
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                 Male
+                </p>
+              )}
+            </Menu.Item>
+            <Menu.Item>
+              {({ active }) => (
+                <p
+                  onClick={() => setGender('Female')}
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm'
+                  )}
+                >
+                  Female
+                </p>
+              )}
+            </Menu.Item>
+            
+            
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
+            </div>
+          </div>
+          <div className="sm:col-span-1">
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+              Age
+            </label>
+            <div className="mt-2.5 ">
+              <input
+              onChange={(e) => setAge(e.target.value)}
+                type="number"
+                name="age"
+                id='age'
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          
+          <div className="sm:col-span-2">
+            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+              Mobile Number
+            </label>
+            <div className="mt-2.5">
+              <input
+              onChange={(e) => setPhonenumber(e.target.value)}
+                type="text"
+                name="company"
+                id="company"
+                
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          
             <div className="sm:col-span-2">
             <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
               Tell us about your self
             </label>
             <div className="mt-2.5">
               <textarea
+              onChange={(e) => setSelfSummary(e.target.value)}
                 name="message"
                 id="message"
                 rows={4}
+                placeholder='Add a summary of your self'
                 className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 defaultValue={''}
               />
@@ -345,6 +310,8 @@ export default function GetInfo() {
           </button>
         </div>
       </form>
+      
     </div>
+    
   )
 }
