@@ -4,7 +4,7 @@ import Button from "../components/Button";
 
 const SpecialOffer = () => {
   return (
-    <section className="flex justify-wrap items-center max-xl:flex-col-reverse gap-10">
+    <section id='about-us' className="flex justify-wrap items-center max-xl:flex-col-reverse gap-10 pt-10" >
       <div className="flex-1">
         <img src={SpecialOfferImage} width={773} height={687} className="object-contain w-full"/>
 
@@ -21,7 +21,7 @@ const SpecialOffer = () => {
           and client satisfaction, we deliver tailored HR solutions to meet your unique
           organizational needs.</p>
       <div className='mt-11'>
-      <Button  label = "View Details" />
+      <Button  label = "Register Now" />
       </div>
       
 

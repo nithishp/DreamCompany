@@ -4,8 +4,8 @@ import TeamImage from '../persnalAsset/TeamImage.svg'
 export const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#about-us", label: "About Us" },
-    { href: "#products", label: "Products" },
-    { href: "#contact-us", label: "Contact Us" },
+    { href: "#reviews", label: "Testimonials" },
+    { href: "#contactus", label: "Contact Us" },
 ];
 
 export const shoes = [
@@ -120,5 +120,5 @@ export const footerLinks = [
 export const socialMedia = [
     { src: facebook, alt: "facebook logo" },
     { src: twitter, alt: "twitter logo" },
-    { src: instagram, alt: "instagram logo" },
+    { src: instagram, alt: "instagram logo",href:"https://www.instagram.com/join_dreamcompany/" },
 ];
