@@ -7,6 +7,7 @@ import CoustomerReviews from './sections/CoustomerReviews'
 
 import Footer from './sections/Footer.jsx'
 import Nav from './components/Nav.jsx'
+import Contactus from './sections/Contactus.jsx'
 const App = () => {
   return (
     
@@ -30,6 +31,9 @@ const App = () => {
   </section>
   <section className="padding bg-pale-blue">
     <CoustomerReviews />
+  </section>
+  <section id='contactus' className="padding bg-pale-blue">
+    <Contactus />
   </section>
 
   <section className="padding-x padding-y bg-black pb-8">

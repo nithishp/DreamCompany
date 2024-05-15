@@ -16,6 +16,7 @@ const Footer = () => {
 alt = {icon.alt}
 width={24}
 height={24}
+onClick={()=>(window.open(icon.href))}
 />
 
 </div>
