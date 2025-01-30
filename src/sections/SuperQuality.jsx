@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../components/Button'
 import {shoe8} from '../assets/images'
-import SuperQualityImage from '../persnalAsset/superQualityImage.png'
+import { SuperImage } from '../assets/images'
 const SuperQuality = () => {
   return (
     <section  className='flex justify-between items-center max-lg:flex-col gap-10 w-full max-container'>
@@ -21,7 +21,7 @@ const SuperQuality = () => {
 
       </div>
       <div className='flex flex-1 justify-center items-center'>
-        <img src={SuperQualityImage} alt='SuperQualityImage' width={570} height={522} className='object-contain'/>
+        <img src={SuperImage} alt='SuperQualityImage' width={570} height={522} className='object-contain'/>
 
       </div>
     </section>
