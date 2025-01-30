@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 const ShiftingContactForm = () => {
   const [selected, setSelected] = useState("individual");
   return (
-    <section className="p-4 bg-slate-100">
-      <div className="w-full max-w-6xl mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-lg overflow-hidden">
+    <section className=" bg-slate-100 my-5">
+      <div className="w-full max-w-6xl  mx-auto shadow-lg flex flex-col-reverse lg:flex-row rounded-lg overflow-hidden">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
