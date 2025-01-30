@@ -120,7 +120,7 @@ export const footerLinks = [
 ];
 
 export const socialMedia = [
-    { src: facebook, alt: "facebook logo" },
-    { src: linkedin, alt: "LinkedIn logo" },
+    // { src: facebook, alt: "facebook logo" },
+    // { src: linkedin, alt: "LinkedIn logo" },
     { src: instagram, alt: "instagram logo",href:"https://www.instagram.com/join_dreamcompany/" },
 ];
