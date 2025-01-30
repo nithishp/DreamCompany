@@ -1,4 +1,4 @@
-import { facebook, instagram, shieldTick, support, truckFast, twitter } from "../assets/icons";
+import { facebook, instagram, linkedin, shieldTick, support, truckFast, twitter } from "../assets/icons";
 import { bigShoe1, bigShoe2, bigShoe3, customer1, customer2, shoe4, shoe5, shoe6, shoe7, thumbnailShoe1, thumbnailShoe2, thumbnailShoe3 } from "../assets/images";
 import TeamImage from '../persnalAsset/TeamImage.svg'
 export const navLinks = [
@@ -71,18 +71,20 @@ export const services = [
 ];
 
 export const reviews = [
-    {
-        imgURL: customer1,
-        customerName: 'Morich Brown',
-        rating: 4.5,
-        feedback: "The attention to detail and the quality of the product exceeded my expectations. Highly recommended!"
-    },
-    {
-        imgURL: customer2,
-        customerName: 'Lota Mongeskar',
-        rating: 4.5,
-        feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
-    }
+  {
+    imgURL: customer1,
+    customerName: "Manoj Kumar",
+    rating: 4.5,
+    feedback:
+      "I recently approached Dream company for a job vacany and was impressed with their speedy response and quick service. They were flexible with appointments, cost-efficient. Excellent service overall!",
+  },
+  {
+    imgURL: customer2,
+    customerName: "Kusuma palapatla",
+    rating: 5,
+    feedback:
+      "After my studies I wanted to get settled in abroad, I do not know any job vacancies or have anyone to support. So my cousin asked me to approach Dream Compnay to get placed in right job. So I submitted my CV to them and within 15 days they found me a good job with a decent package that matches my profile!",
+  },
 ];
 
 
@@ -119,6 +121,6 @@ export const footerLinks = [
 
 export const socialMedia = [
     { src: facebook, alt: "facebook logo" },
-    { src: twitter, alt: "twitter logo" },
+    { src: linkedin, alt: "LinkedIn logo" },
     { src: instagram, alt: "instagram logo",href:"https://www.instagram.com/join_dreamcompany/" },
 ];

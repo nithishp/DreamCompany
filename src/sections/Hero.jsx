@@ -28,16 +28,16 @@ const Hero = () => {
         <div className='justify-start items-start flex flex-wrap w-full mt-20 gap-16'>
       
           <div  className='flex flex-col max-sm:flex-auto justify-center items-center'>
-            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={32} duration={2} delay={0}/>+</p>
-            <p className='text-slate-gray font-montserrat leading-7'>Shop</p>
+            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={500} duration={2} delay={0}/>+</p>
+            <p className='text-slate-gray font-montserrat leading-7'>Peoples hired</p>
           </div>
           <div  className='flex flex-col max-sm:flex-auto justify-center items-center'>
-            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={97} duration={2} delay={0}/>+</p>
-            <p className='text-slate-gray font-montserrat leading-7'>Brands</p>
+            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={15} duration={2} delay={0}/>+</p>
+            <p className='text-slate-gray font-montserrat leading-7'>Industries leading</p>
           </div>
           <div  className='flex flex-col max-sm:flex-auto justify-center items-center'>
-            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={157} duration={2} delay={0}/>+</p>
-            <p className='text-slate-gray font-montserrat leading-7'>Clients</p>
+            <p className='text-4xl font-palanquin font-bold'><CountUp start={0} end={20} duration={2} delay={0}/>+</p>
+            <p className='text-slate-gray font-montserrat leading-7'>Locations</p>
           </div>
         
         </div>
