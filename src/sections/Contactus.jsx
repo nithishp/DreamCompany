@@ -17,7 +17,13 @@ const Contactus = () => {
           For additional queries
         </h1>
         <p className="text-center">Reach us at </p>
-        <h1 className='mx-auto text-center text-xl px-4 py-2 bg-red-500 rounded-full w-max text-white flex gap-2 hover:bg-red-600 duration-200'> <MailIcon/>  dreamcompany.in@gmail.com</h1>
+        <a
+          href="mailto:dreamcompany.in@gmail.com"
+          className="mx-auto text-center text-xl px-4 py-2 bg-red-500 rounded-full w-max text-white flex gap-2 hover:bg-red-600 duration-200"
+        >
+          {" "}
+          <MailIcon /> dreamcompany.in@gmail.com
+        </a>
       </div>
     </div>
   );
